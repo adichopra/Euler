@@ -1,25 +1,32 @@
 package com.adichopra.euler;
 
+/**
+ * This class finds the sum of all the even-valued terms of the Fibonacci
+ * sequence that do not exceed four million.
+ */
 public class Problem2 {
-    public static void main(String[] args) {
-	System.out.println(P2(4000000));
+
+  public static void main(String[] args) {
+    int n = 4000000;
+    Fibonacci f = new Fibonacci(n);
+    System.out.println(fib(f, n));
+  }
+
+  /*
+   * Computes the sum of all the even-valued terms of the Fibonacci
+   * sequence that do not exceed N.
+   */
+  public static int fib(Fibonacci f, int n) {
+    int sum = 0;
+    int i = 0;
+    int currFib = 0;
+    while (i < n && currFib <= n) {
+      currFib = f.nthFib(i);
+      if (currFib % 2 == 0) {
+        sum += currFib;
+      }
+      i += 1;
     }
-    public static int P2(int n) {
-	int sum = 0;
-	for (int i = 0; i < n; i++) {
-	    if (fib(i) > n) {
-		n = i;
-		break;
-	    }
-		}
-	for (int i = 0; i < n; i++) {
-	    if (fib(i) % 2 == 0) sum += fib(i);
-	}
-	return sum;
-    }
-    public static int fib(int n) {
-	if (n < 0) return 0;
-	if (n == 1) return 1;
-	return fib(n - 2) + fib(n - 1);
-    }
+    return sum;
+  }
 }
