@@ -1,17 +1,25 @@
 package com.adichopra.euler;
 
+/**
+ * This class finds the first triangle number to have over five hundred
+ * divisors.
+ */
 public class Problem12 {
 
-    public static void main(String[] args) {
-	System.out.println(P12(500));
+  public static void main(String[] args) {
+    System.out.println(triangleWithNDivisors(500));
+  }
+
+  /**
+   * Computes the first triangle number to have over N divisors.
+   */
+  public static int triangleWithNDivisors(int n) {
+    int x = 1;
+    int counter = 1;
+    while (Primes.factorize(x).size() * 2 < n) {
+      counter++;
+      x = counter * (1 + counter) / 2;
     }
-    public static int P12(int n) {
-	int i = 1;
-	int counter = 1;
-	while (Problem3.factors(i).size() * 2 < n) { //Reuses the factors method from problem 3
-	    counter++;
-	    i = counter * (1 + counter) / 2;
-	}
-	return i;
-    }
+    return x;
+  }
 }
