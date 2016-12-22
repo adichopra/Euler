@@ -1,3 +1,5 @@
+package com.adichopra.euler;
+
 public class Problem4 {
 
     public static void main(String[] args) {

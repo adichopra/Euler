@@ -1,3 +1,5 @@
+package com.adichopra.euler;
+
 public class Problem9 {
     public static void main(String[] args) {
 	System.out.println(P9(1000));

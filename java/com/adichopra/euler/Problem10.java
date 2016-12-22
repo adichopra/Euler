@@ -1,3 +1,5 @@
+package com.adichopra.euler;
+
 import java.util.ArrayList;
 
 public class Problem10 {

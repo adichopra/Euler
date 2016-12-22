@@ -1,3 +1,5 @@
+package com.adichopra.euler;
+
 import java.math.BigInteger;
 
 public class Problem13 {

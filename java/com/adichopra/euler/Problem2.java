@@ -1,3 +1,5 @@
+package com.adichopra.euler;
+
 public class Problem2 {
     public static void main(String[] args) {
 	System.out.println(P2(4000000));
