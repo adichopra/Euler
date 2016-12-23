@@ -2,38 +2,24 @@ package com.adichopra.euler;
 
 import java.util.ArrayList;
 
+/**
+ * This class finds the sum of all the primes below two million.
+ */
 public class Problem10 {
 
-    public static void main(String[] args) {
-	System.out.println(P10(2000000));
+  public static void main(String[] args) {
+    System.out.println(sumPrimes(2000000));
+  }
+
+  /**
+   * Computes the sum of all the primes below N.
+   */
+  public static long sumPrimes(int n) {
+    long sum = 0;
+    ArrayList<Integer> a = Primes.getPrimesLessThan(n);
+    for (int i : a) {
+      sum += i;
     }
-    //Problem 10 [TOO LONG] (1m2.304s)
-    public static long P10(int n) {
-	long sum = 0;
-	ArrayList<Integer> a = primes(n);
-	for (int i: a) {
-	    sum += i;
-	}
-	return sum;
-    }
-    public static ArrayList<Integer> primes(int n) {
-	ArrayList<Integer> a = new ArrayList<Integer>();
-	for (int i = 2; i <= n; i++) {
-	    if (a.size() != 0) {
-		boolean prime = true;
-		for (int j: a) {
-		    if (i % j == 0) {
-			prime = false;
-			break;
-		    }
-		}
-		if (prime){
-		    //System.out.println(i);
-		    a.add(i);
-		}
-	    }
-	    else a.add(i);
-	}
-	return a;
-    }
+    return sum;
+  }
 }

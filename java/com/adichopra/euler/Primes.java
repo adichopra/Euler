@@ -38,4 +38,28 @@ public class Primes {
   public static boolean isPrime(long n) {
     return factorize(n).size() == 1;
   }
+
+  /**
+   * Computes the list of all the primes below N.
+   */
+  public static ArrayList<Integer> getPrimesLessThan(int n) {
+    ArrayList<Integer> a = new ArrayList<Integer>();
+    a.add(2);
+    for (int i = 3; i < n; i++) {
+      boolean prime = true;
+      for (int j : a) {
+        if (j > Math.sqrt(i)) {
+          break;
+        }
+        if (i % j == 0) {
+          prime = false;
+          break;
+        }
+      }
+      if (prime) {
+        a.add(i);
+      }
+    }
+    return a;
+  }
 }
